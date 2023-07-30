@@ -6,6 +6,7 @@ import {
   IsNumber,
   IsNumberString,
   IsString,
+  IsUUID,
   Min,
   MinLength,
   ValidateNested,
@@ -15,6 +16,9 @@ import { ProductImageDTO } from './productimages.dto';
 import { Type } from 'class-transformer';
 
 export class ProductCreateDTO {
+  @IsUUID(undefined, {message: 'ID do usuário é inválido'})
+  userId: string;
+
   @IsNotEmpty()
   nome: string;
 
